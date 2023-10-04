@@ -3,10 +3,14 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
 
+menu = ['Обо мне', 'Портфолио', 'Стоимость', 'Контакты', 'Войти']
 
 def index(request):
-    return HttpResponse('<h1>Страница Фотографа кошки<h1>')
+    posts = Photo.objects.all()
+    return render(request, 'photo/index.html', {'posts': posts, 'menu': menu, 'title': 'Главная страница'})
 
+def about(request):
+    return render(request, 'photo/about.html', {'menu': menu, 'title': 'О нас'})
 
 def categories(request, cat):
     return HttpResponse(f'<h1>Страница категорий {cat}</h1>')

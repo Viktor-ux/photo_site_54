@@ -17,10 +17,12 @@ Including another URLconf
 from django.urls import include
 from django.urls import path
 
+from photo.views import about
 from photo.views import categories
 from photo.views import index
 
 urlpatterns = [
     path('', index), # http://127.0.0.1:8000
+    path('about/', about),
     path('cats/<slug:cat>/', categories), # http://127.0.0.1:8000/cats/
 ]
