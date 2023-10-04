@@ -18,11 +18,19 @@ from django.urls import include
 from django.urls import path
 
 from photo.views import about
-from photo.views import categories
+from photo.views import addpage
+from photo.views import contact
 from photo.views import index
+from photo.views import login
+from photo.views import portfolio
+from photo.views import price
 
 urlpatterns = [
-    path('', index), # http://127.0.0.1:8000
-    path('about/', about),
-    path('cats/<slug:cat>/', categories), # http://127.0.0.1:8000/cats/
+    path('', index, name='home'), # http://127.0.0.1:8000
+    path('about/', about, name='about'), # http://127.0.0.1:8000
+    path('addpage/', addpage, name='add_page'),
+    path('portfolio/', portfolio, name='portfolio'),
+    path('price/', price, name='price'),
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
 ]

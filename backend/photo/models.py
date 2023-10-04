@@ -6,7 +6,7 @@ class Photo(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, verbose_name='Фото')
     time_created = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     time_updated = models.DateTimeField(auto_now=True, verbose_name='Время обновления')
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True, null=True)
+    cat = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.title

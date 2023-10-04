@@ -3,17 +3,49 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
 
-menu = ['Обо мне', 'Портфолио', 'Стоимость', 'Контакты', 'Войти']
+menu = [
+        {"title": 'Обо мне', 'url_name': 'about'},
+        {'title': 'Портфолио', 'url_name': 'portfolio'},
+        {'title': 'Стоимость', 'url_name': 'price'},
+        {'title': 'Контакты', 'url_name': 'contact'},
+        {'title': 'Войти', 'url_name': 'login'}
+        ]
+
 
 def index(request):
     posts = Photo.objects.all()
-    return render(request, 'photo/index.html', {'posts': posts, 'menu': menu, 'title': 'Главная страница'})
+    context = {'posts': posts,
+               'menu': menu,
+               'title': 'Главная страница'}
+    return render(request, 'photo/index.html', context=context)
+
+
+def post(request):
+    ...
+
 
 def about(request):
-    return render(request, 'photo/about.html', {'menu': menu, 'title': 'О нас'})
+    return HttpResponse('обо мне')
 
-def categories(request, cat):
-    return HttpResponse(f'<h1>Страница категорий {cat}</h1>')
+
+def addpage(request):
+    return HttpResponse('Добавление')
+
+
+def portfolio(request):
+    return HttpResponse('портфолио')
+
+
+def price(request):
+    return HttpResponse('прайс')
+
+
+def contact(request):
+    return HttpResponse('контакт')
+
+
+def login(request):
+    return HttpResponse('логин')
 
 
 def pageNotFound(request, exception):
