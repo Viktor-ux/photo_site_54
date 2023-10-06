@@ -4,11 +4,10 @@ from .models import *
 from django.http import HttpResponse
 
 menu = [
-        {"title": 'Обо мне', 'url_name': 'about'},
-        {'title': 'Портфолио', 'url_name': 'portfolio'},
-        {'title': 'Стоимость', 'url_name': 'price'},
+        {"title": 'Услуги', 'url_name': 'price'},
+        {'title': 'Мои работы', 'url_name': 'portfolio'},
+        {'title': 'Подарочный сертификат', 'url_name': 'certificate'},
         {'title': 'Контакты', 'url_name': 'contact'},
-        {'title': 'Войти', 'url_name': 'login'}
         ]
 
 
@@ -28,24 +27,20 @@ def about(request):
     return HttpResponse('обо мне')
 
 
-def addpage(request):
-    return HttpResponse('Добавление')
-
-
 def portfolio(request):
-    return HttpResponse('портфолио')
+    return HttpResponse('Мои работы')
 
 
 def price(request):
-    return HttpResponse('прайс')
+    return HttpResponse('Услуги и цены')
 
 
 def contact(request):
-    return HttpResponse('контакт')
+    return HttpResponse('Контакты')
 
 
-def login(request):
-    return HttpResponse('логин')
+def certificate(request):
+    return HttpResponse('Подарочный сертификат')
 
 
 def pageNotFound(request, exception):

@@ -12,8 +12,6 @@ class Photo(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Фоточки'
-        verbose_name_plural = 'Фоточки'
         ordering = ['time_created']
 
 
