@@ -13,34 +13,37 @@ menu = [
 
 def index(request):
     posts = Photo.objects.all()
+    template = 'photo/index.html'
     context = {'posts': posts,
                'menu': menu,
                'title': 'Главная страница'}
-    return render(request, 'photo/index.html', context=context)
-
-
-def post(request):
-    ...
-
-
-def about(request):
-    return HttpResponse('обо мне')
+    return render(request, template, context=context)
 
 
 def portfolio(request):
-    return HttpResponse('Мои работы')
+    posts = Photo.objects.all()
+    template = 'photo/portfolio.html'
+    context = {'posts': posts,
+               'title': 'Мои работы'}
+    return render(request, template, context=context)
 
 
 def price(request):
-    return HttpResponse('Услуги и цены')
+    template = 'photo/price.html'
+    context = {'title': 'Стоимость услуг'}
+    return render(request, template, context=context)
 
 
 def contact(request):
-    return HttpResponse('Контакты')
+    template = 'photo/contact.html'
+    context = {'title': 'Контактная информация'}
+    return render(request, template, context=context)
 
 
 def certificate(request):
-    return HttpResponse('Подарочный сертификат')
+    template = 'photo/certificate.html'
+    context = {'title': 'Подарочный сертификат'}
+    return render(request, template,context=context)
 
 
 def pageNotFound(request, exception):

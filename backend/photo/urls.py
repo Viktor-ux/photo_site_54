@@ -21,8 +21,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='home'), # http://127.0.0.1:8000
-    path('about/', views.about, name='about'), # http://127.0.0.1:8000
+    path('', views.index, name='home'),
     path('portfolio/', views.portfolio, name='portfolio'),
     path('price/', views.price, name='price'),
     path('contact/', views.contact, name='contact'),
