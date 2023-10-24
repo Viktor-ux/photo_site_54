@@ -1,7 +1,6 @@
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from .models import *
-from django.http import HttpResponse
 
 menu = [
         {"title": 'Услуги', 'url_name': 'price'},
@@ -43,7 +42,7 @@ def contact(request):
 def certificate(request):
     template = 'photo/certificate.html'
     context = {'title': 'Подарочный сертификат'}
-    return render(request, template,context=context)
+    return render(request, template, context=context)
 
 
 def pageNotFound(request, exception):
