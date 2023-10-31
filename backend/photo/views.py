@@ -2,23 +2,11 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from .models import *
 
-menu = [
-        {"title": 'Услуги', 'url_name': 'price'},
-        {'title': 'Мои работы', 'url_name': 'portfolio'},
-        {'title': 'Подарочный сертификат', 'url_name': 'certificate'},
-        {'title': 'Контакты', 'url_name': 'contact'},
-        ]
-
-photo_db = [
-    {'id': 1, 'name': 'фото которые были'},
-    {'id': 2, 'name': 'фото которые будут'},
-    ]
 
 def index(request):
     posts = Photo.objects.all()
     template = 'photo/index.html'
     context = {'posts': posts,
-               'menu': menu,
                'title': 'Главная страница'}
     return render(request, template, context=context)
 
@@ -34,18 +22,6 @@ def portfolio(request):
 def price(request):
     template = 'photo/price.html'
     context = {'title': 'Стоимость услуг'}
-    return render(request, template, context=context)
-
-
-def contact(request):
-    template = 'photo/contact.html'
-    context = {'title': 'Контактная информация'}
-    return render(request, template, context=context)
-
-
-def certificate(request):
-    template = 'photo/certificate.html'
-    context = {'title': 'Подарочный сертификат'}
     return render(request, template, context=context)
 
 
