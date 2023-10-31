@@ -9,6 +9,10 @@ menu = [
         {'title': 'Контакты', 'url_name': 'contact'},
         ]
 
+photo_db = [
+    {'id': 1, 'name': 'фото которые были'},
+    {'id': 2, 'name': 'фото которые будут'},
+    ]
 
 def index(request):
     posts = Photo.objects.all()

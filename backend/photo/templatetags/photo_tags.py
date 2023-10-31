@@ -1,3 +1,13 @@
 from django import template
-from photo.models import Photo
+import photo.views as views
 
+register = template.Library()
+
+
+@register.simple_tag()
+def get_photo():
+    return views.photo_db
+
+
+def show_photo():
+    return views.photo_db
