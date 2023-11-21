@@ -13,3 +13,14 @@ class Photo(models.Model):
 
     class Meta:
         ordering = ['time_created']
+
+
+
+import math
+
+def next_power_of_two(arr):
+    total_sum = sum(arr)
+    result = 1
+    while result < total_sum:
+        result = result << 1
+        return result
