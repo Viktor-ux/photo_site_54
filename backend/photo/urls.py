@@ -17,14 +17,13 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.urls import include
 from django.urls import path
-from django.views.decorators.cache import cache_page
 
 from photosite54 import settings
 from . import views
 
 
 urlpatterns = [
-    path('', cache_page(60)(views.index), name='home'),
+    path('', views.index, name='home'),
     path('portfolio/', views.portfolio, name='portfolio'),
     path('price/', views.price, name='price'),
 ]
